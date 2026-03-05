@@ -8,7 +8,7 @@ const ZEPTOMAIL_API = 'https://api.zeptomail.com/v1.1/email';
 export async function sendEmail(
   to: string,
   subject: string,
-  textBody: string,
+  htmlBody: string,
   replyTo?: string
 ) {
   const response = await axios.post(
@@ -25,7 +25,7 @@ export async function sendEmail(
         },
       ],
       subject,
-      textbody: textBody,
+      htmlbody: htmlBody, // Send HTML email instead of plain text
       ...(replyTo && { reply_to: { address: replyTo } }),
     },
     {

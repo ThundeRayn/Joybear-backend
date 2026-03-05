@@ -1,6 +1,8 @@
 import express from 'express';
 import type { Request, Response } from 'express';
 import { sendEmail } from '../config/index.js';
+import { contactNotificationTemplate } from '../templates/contactNotification.js';
+import { contactConfirmationTemplate } from '../templates/contactConfirmation.js';
 
 const router = express.Router();
 
@@ -17,15 +19,15 @@ router.post('/send-contact', async (req: Request, res: Response) => {
     await sendEmail(
       process.env.RECEIVE_EMAIL!,
       `New Contact Form: ${name}`,
-      `From: ${email}\n\n${message}`,
+      contactNotificationTemplate(name, email, message),
       email // replyTo — so you can hit "Reply" and respond to the visitor
     );
 
     // Send confirmation to the visitor
     await sendEmail(
       email,
-      'We received your message',
-      'Thank you for contacting us. We will get back to you soon!'
+      'Thank you for contacting JoyBear!',
+      contactConfirmationTemplate(name)
     );
 
     res.json({ success: true, message: 'Email sent successfully' });
