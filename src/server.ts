@@ -6,7 +6,7 @@ const app = express();
 //Creates the Express app (your server)
 
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: ['http://localhost:5173', 'https://www.joybeartoys.com', 'https://joybeartoys.com'],
   // Your React frontend, cors中间件赋权
 }));
 //Sets up CORS → "only allow requests from localhost:5173"

@@ -7,16 +7,16 @@ export function contactNotificationTemplate(name: string, email: string, message
     <head>
       <meta charset="utf-8" />
     </head>
-    <body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, sans-serif;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 40px 0;">
+    <body style="margin: 0; padding: 0; background-color: #f8f8f8; font-family: Arial, sans-serif;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8f8f8; padding: 40px 0;">
         <tr>
           <td align="center">
-            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(200,200,200,0.3);">
 
               <!-- Header with logo -->
               <tr>
-                <td style="background-color: #8B6F47; padding: 24px; text-align: center;">
-                  <img src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768928737/joybear-logo_white_rnqxzl.png" alt="JoyBear" height="40" style="height: 40px;" />
+                <td style="background-color: #c99058; padding: 24px; text-align: center;">
+                  <img src="https://joybeartoys.com/joybear-newicon.png" alt="JoyBear" height="40" style="height: 40px;" />
                 </td>
               </tr>
 
@@ -30,7 +30,7 @@ export function contactNotificationTemplate(name: string, email: string, message
               <!-- Form data -->
               <tr>
                 <td style="padding: 0 32px;">
-                  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f9f9f9; border-radius: 6px; padding: 20px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8f8f8; border-radius: 6px;">
                     <tr>
                       <td style="padding: 12px 20px; border-bottom: 1px solid #eeeeee;">
                         <strong style="color: #666666; font-size: 13px; text-transform: uppercase;">Name</strong>
@@ -41,7 +41,7 @@ export function contactNotificationTemplate(name: string, email: string, message
                       <td style="padding: 12px 20px; border-bottom: 1px solid #eeeeee;">
                         <strong style="color: #666666; font-size: 13px; text-transform: uppercase;">Email</strong>
                         <p style="margin: 4px 0 0; font-size: 16px; color: #333333;">
-                          <a href="mailto:${email}" style="color: #8B6F47; text-decoration: none;">${email}</a>
+                          <a href="mailto:${email}" style="color: #90d2f4; text-decoration: none;">${email}</a>
                         </p>
                       </td>
                     </tr>
