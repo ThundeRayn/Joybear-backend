@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: joybear-backend
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: EMAIL_USER
+        sync: false
+      - key: ZEPTOMAIL_TOKEN
+        sync: false
+      - key: RECEIVE_EMAIL
+        sync: false
