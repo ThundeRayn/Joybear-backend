@@ -1,0 +1,26 @@
+import express from 'express';
+import { sendEmail } from '../config/index.js';
+import { contactNotificationTemplate } from '../templates/contactNotification.js';
+import { contactConfirmationTemplate } from '../templates/contactConfirmation.js';
+const router = express.Router();
+router.post('/send-contact', async (req, res) => {
+    try {
+        const { name, email, message } = req.body;
+        // Validation
+        if (!name || !email || !message) {
+            return res.status(400).json({ error: 'backend error catched: Missing required fields' });
+        }
+        // Send contact form to your email (RECEIVE_EMAIL)
+        await sendEmail(process.env.RECEIVE_EMAIL, `New Contact Form: ${name}`, contactNotificationTemplate(name, email, message), email // replyTo — so you can hit "Reply" and respond to the visitor
+        );
+        // Send confirmation to the visitor
+        await sendEmail(email, 'Thank you for contacting JoyBear!', contactConfirmationTemplate(name));
+        res.json({ success: true, message: 'Email sent successfully' });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to send email' });
+    }
+});
+export default router;
+//# sourceMappingURL=email.js.map

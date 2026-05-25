@@ -2,7 +2,7 @@ services:
   - type: web
     name: joybear-backend
     runtime: node
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --omit=dev
     startCommand: npm start
     healthCheckPath: /healthz
     envVars:
